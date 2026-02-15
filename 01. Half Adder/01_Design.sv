@@ -1,3 +1,3 @@
 module half_adder(variables ha);
-  assign {ha.cout,ha.sum}=a+b;
+  assign {ha.carry,ha.sum}=a+b;
 endmodule
