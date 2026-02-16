@@ -11,7 +11,7 @@ class scoreboard;
       montoscore.get(trans);
       trans.display("Scoreboard");
       
-      if (((trans.a^trans.b)==trans.sum)&&((trans.a&trans.b)==trans.carry)))
+      if ( ( (trans.a^trans.b)==trans.sum) && ( (trans.a&trans.b)==trans.carry ) ) 
         $display("Verification Success");
       else
         $display("Verification Failure");
