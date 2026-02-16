@@ -1,3 +1,5 @@
-module half_adder(variables ha);
-  assign {ha.carry,ha.sum}=a+b;
+module half_adder(
+  variables inter
+);
+  assign {inter.carry,inter.sum}=inter.a+inter.b;
 endmodule
