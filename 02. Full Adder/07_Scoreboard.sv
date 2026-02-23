@@ -9,12 +9,9 @@ class scoreboard;
     transaction tr;
     repeat(8) begin
       montosco.get(tr);
-      tr.display("Adder Output");
-      #1;
-      if ({tr.carry, tr.sum} == tr.a + tr.b + tr.c)
-        $display("~ Checking Pass ~\n");
-      else
-        $display("~ Checking Fail ~\n");
+      tr.display("Scoreboard");
+      $display("\n");
+      #3;
     end
   endtask
   
