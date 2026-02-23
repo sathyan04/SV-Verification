@@ -19,7 +19,8 @@ class monitor;
       tr.carry = intf.carry;
       
       montosco.put(tr);
-      #1;
+      tr.display("Monitor");
+      #3;
     end
   endtask
   
