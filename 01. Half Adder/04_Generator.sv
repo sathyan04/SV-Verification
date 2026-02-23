@@ -1,20 +1,18 @@
 class generator;
-  transaction trans;
+  transaction tr;
   mailbox gentodri;
   
   function new(mailbox gentodri);
-    this.gentodri=gentodri;
+    this.gentodri = gentodri;
   endfunction
   
   task main();
-    repeat(6)
-      begin
-        trans=new();
-        trans.randomize();
-        trans.display("Generator");
-        gentodri.put(trans);
-        #3;
-      end
+    repeat(4) begin
+      tr = new();
+      tr.randomize();
+      gentodri.put(tr);
+      #1;
+    end
   endtask
-
+  
 endclass
