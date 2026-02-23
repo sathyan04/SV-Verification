@@ -1,23 +1,17 @@
-class monitor;
-  virtual variable intf;
+class scoreboard;
   mailbox montosco;
   
-  function new(virtual variable intf, mailbox montosco);
-    this.intf=intf;
-    this.montosco=montosco;
+  function new(mailbox montosco);
+    this.montosco = montosco;
   endfunction
   
   task main();
     transaction tr;
     repeat(4) begin
-      tr=new();
-      tr.a = intf.a;
-      tr.b = intf.b;
-      tr.sum = intf.sum;
-      tr.carry = intf.carry;
-      montosco.put(tr);
+      montosco.get(tr);
+      tr.display("Output:");
       #1;
     end
   endtask
   
-endclass
+  endclass
