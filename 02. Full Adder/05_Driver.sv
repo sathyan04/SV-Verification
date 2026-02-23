@@ -14,7 +14,8 @@ class driver;
       intf.a<=tr.a;
       intf.b<=tr.b;
       intf.c<=tr.c;
-      #1;
+      tr.display("Driver");
+      #3;
     end
   endtask
   
