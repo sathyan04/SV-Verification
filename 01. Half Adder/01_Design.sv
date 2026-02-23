@@ -1,5 +1,5 @@
-module half_adder(
-  variables inter
-);
-  assign {inter.carry,inter.sum}=inter.a+inter.b;
+`include "interface.sv"
+
+module ha(variable intf);
+  assign {intf.carry, intf.sum} = intf.a + intf.b;
 endmodule
