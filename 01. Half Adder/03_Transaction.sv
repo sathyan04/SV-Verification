@@ -5,8 +5,8 @@ class transaction;
   bit carry;
   
   function void display(string name);
-    $display("%s",name);
-    $display("A=%b| B=%b || Sum=%b | Carry=%b",a,b,sum,carry);
+    $display("~~~~~~~~~~~~~~%s~~~~~~~~~~~~~~",name);
+    $display("| a=%b | b=%b || sum=%b | carry=%b |",a,b,sum,carry);
   endfunction
   
 endclass
