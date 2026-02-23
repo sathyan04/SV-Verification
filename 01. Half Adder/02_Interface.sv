@@ -1,4 +1,4 @@
-interface variables;
+interface variable;
   logic a;
   logic b;
   logic sum;
