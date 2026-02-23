@@ -1,20 +1,22 @@
-class scoreboard;
-  transaction trans;
-  mailbox montoscore;
+class monitor;
+  virtual variable intf;
+  mailbox montosco;
   
-  function new(mailbox montoscore);
-    this.montoscore=montoscore;
+  function new(virtual variable intf, mailbox montosco);
+    this.intf=intf;
+    this.montosco=montosco;
   endfunction
   
   task main();
-    repeat(6) begin
-      montoscore.get(trans);
-      trans.display("Scoreboard");
-      
-      if ( ( (trans.a^trans.b)==trans.sum) && ( (trans.a&trans.b)==trans.carry ) ) 
-        $display("Verification Success");
-      else
-        $display("Verification Failure");
+    transaction tr;
+    repeat(4) begin
+      tr=new();
+      tr.a = intf.a;
+      tr.b = intf.b;
+      tr.sum = intf.sum;
+      tr.carry = intf.carry;
+      montosco.put(tr);
+      #1;
     end
   endtask
   
