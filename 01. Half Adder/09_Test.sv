@@ -1,8 +1,11 @@
 `include "environment.sv"
-program test (variables inter);
+
+program test (variable intf);
+  environment env;
+  
   initial begin
-    environment env;
-    env=new(inter);
-    env.test;
+    env = new(intf);
+    env.run();
   end
+  
 endprogram
