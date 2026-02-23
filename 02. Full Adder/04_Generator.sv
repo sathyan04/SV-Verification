@@ -11,7 +11,8 @@ class generator;
       tr=new();
       assert(tr.randomize());
       gentodri.put(tr);
-      #1;
+      tr.display("Generator");
+      #3;
     end
   endtask
   
