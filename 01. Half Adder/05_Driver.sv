@@ -1,21 +1,20 @@
 class driver;
-  virtual variables inter;
-  transaction trans;
+  virtual variable intf;
   mailbox gentodri;
   
-  function new(virtual variables inter, mailbox gentodri);
-    this.inter=inter;
-    this.gentodri=gentodri;
+  function new (virtual variable intf, mailbox gentodri);
+    this.intf = intf;
+    this.gentodri = gentodri;
   endfunction
   
   task main();
-    repeat(6)
-      begin
-        gentodri.get(trans);
-        inter.a=trans.a;
-        inter.b=trans.b;
-        trans.display("Driver");
-      end
+    transaction tr;
+    repeat(4) begin
+      gentodri.get(tr);
+      intf.a <= tr.a;
+      intf.b <= tr.b;
+      #1;
+    end
   endtask
   
 endclass
