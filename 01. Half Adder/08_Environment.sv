@@ -5,32 +5,32 @@
 `include "scoreboard.sv"
 
 class environment;
-  transaction trans;
-  virtual variables inter;
-  generator gener;
-  driver drive;
-  monitor monit;
-  scoreboard score;
-  mailbox gentodri;
-  mailbox montoscore;
+  generator gen;
+  driver dri;
+  monitor mon;
+  scoreboard sco;
   
-  function new(virtual variables inter);
-    this.inter=inter;
-    gentodri=new();
-    montoscore=new();
-    gener=new(gentodri);
-    drive=new(inter, gentodri);
-    monit=new(montoscore);
-    score=new(inter, montoscore);
+  mailbox gentodri;
+  mailbox montosco;
+  
+  virtual variable intf;
+  
+  function new(virtual variable intf);
+    gentodri = new();
+    montosco = new();
+    gen = new(gentodri);
+    dri = new(intf,gentodri);
+    mon = new(intf,montosco);
+    sco = new(montosco);
   endfunction
   
-  task test();
+  task run();
     fork
-      gener.main();
-      drive.main();
-      monit.main();
-      score.main();
+      gen.main();
+      dri.main();
+      mon.main();
+      sco.main();
     join
   endtask
-  
+
 endclass
