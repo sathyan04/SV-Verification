@@ -1,13 +1,14 @@
-`include "interface.sv"
 `include "test.sv"
-module test_bench();
-  variables inter();
-  test t(inter);
-  half_adder dut(inter);
+
+module testbench();
+  variable intf();
+  test tst(intf);
+  
+  ha dut(intf);
   
   initial begin
-    $dumpfile("adder.vcd");
-    $dumpvars();
+    $dumpfile("verify.vcd");
+    $dumpvars(0);
   end
   
 endmodule
