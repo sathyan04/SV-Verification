@@ -7,11 +7,10 @@ class scoreboard;
   endfunction
   
   task main();
-    repeat(10) begin
+    repeat(4) begin
       montosco.get(tr);
-      tr.display("Output");
-      
-      //#3;
+      tr.display("Output from Scoreboard");
+      #3;
     end
   endtask
   
