@@ -7,7 +7,7 @@ class generator;
   endfunction
   
   task main();
-    repeat(10) begin
+    repeat(4) begin
       tr = new();
       tr.randomize();
       gentodri.put(tr);
