@@ -1,5 +1,5 @@
 class transaction;
-  bit rst;
+  rand bit rst;
   bit q;
   randc bit d;
   
