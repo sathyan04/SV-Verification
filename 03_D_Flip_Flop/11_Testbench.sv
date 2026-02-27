@@ -13,10 +13,6 @@ module test_bench();
   initial begin
     $dumpfile("testing.vcd");
     $dumpvars();
-    intf.rst=0;
-    #10;
-    intf.rst=1;
-    #1000 $finish;
   end
   
 endmodule
