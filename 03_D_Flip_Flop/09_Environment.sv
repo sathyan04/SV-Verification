@@ -1,22 +1,37 @@
 `include "transaction.sv"
-`include "agent.sv"
+`include "generator.sv"
+`include "driver.sv"
+`include "monitor.sv"
 `include "scoreboard.sv"
 
 class environment;
-  agent ag;
+  generator gen;
+  driver dri;
+  monitor mon;
   scoreboard sco;
+  
+  mailbox gentodri;
+  mailbox montosco;
   
   virtual variable intf;
   
   function new(virtual variable intf);
     this.intf = intf;
-    ag = new(intf);
-    sco = new(ag.montosco);
-  endfunction
+    
+    gentodri = new();
+    montosco = new();
+    
+    gen = new(gentodri);
+    dri = new(gentodri, intf);
+    mon = new(montosco, intf);
+    sco = new(montosco);
+  endfunction 
   
   task start();
     fork
-      ag.go();
+      gen.main();
+      dri.main();
+      mon.main();
       sco.main();
     join
   endtask
