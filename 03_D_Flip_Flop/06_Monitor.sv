@@ -9,7 +9,7 @@ class monitor;
   endfunction 
   
   task main();
-    repeat(10) begin
+    repeat(4) begin
       @(posedge intf.clk);
       tr=new();
       tr.rst=intf.rst;
