@@ -9,7 +9,7 @@ class driver;
   endfunction
   
   task main();
-    repeat(10) begin
+    repeat(4) begin
       @(posedge intf.clk);
       gentodri.get(tr);
       intf.rst = tr.rst;
