@@ -1,0 +1,10 @@
+<pre>In:0 | Out:0 | Time:10000
+In:1 | Out:0 | Time:30000
+In:1 | Out:0 | Time:50000
+In:1 | Out:0 | Time:70000
+In:0 | Out:1 | Time:90000
+In:0 | Out:1 | Time:110000
+In:1 | Out:1 | Time:130000
+In:0 | Out:0 | Time:150000
+In:0 | Out:0 | Time:170000
+In:1 | Out:1 | Time:190000</pre>
